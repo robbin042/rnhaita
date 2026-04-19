@@ -1,0 +1,85 @@
+.countdown-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.countdown-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 18rem;
+    color: #ff66b2; /* Base pink */
+    text-shadow: 
+        0 0 10px #ff66b2,
+        0 0 20px #ff3399,
+        0 0 40px #ff007f,
+        0 0 80px #e60073;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0;
+}
+
+.countdown-text.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.birthday-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 8rem;
+    text-align: center;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 10px #ff66b2,
+        0 0 20px #ff3399,
+        0 0 40px #ff007f,
+        0 0 80px #e60073,
+        0 0 120px #cc0066;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.birthday-text.show {
+    opacity: 1;
+    transform: scale(1);
+    animation: pulse 2s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        text-shadow: 
+            0 0 10px #ff66b2,
+            0 0 20px #ff3399,
+            0 0 40px #ff007f,
+            0 0 80px #e60073;
+    }
+    100% {
+        transform: scale(1.05);
+        text-shadow: 
+            0 0 15px #ff99cc,
+            0 0 30px #ff66b2,
+            0 0 60px #ff3399,
+            0 0 100px #ff007f;
+    }
+}
+
+@media (max-width: 768px) {
+    .countdown-text {
+        font-size: 12rem;
+    }
+    .birthday-text {
+        font-size: 4rem;
+        padding: 0 20px;
+    }
+}
